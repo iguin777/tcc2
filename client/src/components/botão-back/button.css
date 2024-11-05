@@ -1,0 +1,22 @@
+.btn-back {
+    width: 86px;
+    height: 86px;
+    flex-shrink: 0;
+    border-radius: 43px;
+    background: linear-gradient(133deg, #B1008A 25.99%, #8900C9 93.81%);
+    box-shadow: 0px 3.34px 14.695px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-back img {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    transition: all 0.4s;
+}
+
+.btn-back img:hover {
+    transform: scale(1.2);
+}

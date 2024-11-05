@@ -1,0 +1,54 @@
+.home {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.carrosel {
+    margin-left: 135px;
+}
+
+.etapas {
+    float: right;
+    margin-top: -43%;
+    margin-right: 24%;
+}
+
+.text-h h3 {
+    color: #FFF;
+    font-size: 38.69px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 43.692px;
+    /* 112.929% */
+    letter-spacing: -0.774px;
+}
+
+.text-h p {
+    color: #AAA;
+    font-size: 20.719px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 23.398px;
+    /* 112.929% */
+    letter-spacing: -0.414px;
+}
+
+.card-etp{
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.publi{
+    margin-top: -23%;
+    margin-left: 28.9%;
+}
+
+.calen{
+    margin-top: -22.5%;
+    margin-left: 9%;
+
+}

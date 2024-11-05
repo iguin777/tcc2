@@ -1,0 +1,95 @@
+.card{
+    display: flex;
+    flex-direction: row;
+    color: #D9D9D9;
+    gap: 200px;
+    margin-left: 16%;
+    margin-top: 90px;
+}
+
+.card img{
+    margin-left: 80px;
+}
+
+.card p{
+    width: 300px;
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: center;
+}
+
+.card h2{
+    margin-top: 40px;
+    text-align: center;
+
+}
+
+#top{
+    margin-top: 60px ;
+}
+
+#top2{
+    margin-top: 34px;
+}
+
+.txt-apre h1{
+    margin-top: 150px;
+    font-family: Inter;
+    font-size: 47.093px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 66.733px; 
+    letter-spacing: -1.182px;
+    background: linear-gradient(90deg, #B1008A 0%, #8900C9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.blur-2{
+    float: left;
+    width: 489px;
+    height: 489px;
+    flex-shrink: 0;
+    margin-top: -30px;
+    margin-left: -400px;
+
+    border-radius: 489px;
+    background: linear-gradient(171deg, #8900C9 45.63%, #B1008A 93.04%);
+    filter: blur(157.48793029785156px);
+}
+
+@media screen and (max-width: 1370px) {
+    .card{
+        margin-left: 4%;
+        gap: 10%;
+
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    .card{
+        display: flex;
+        flex-direction: column;
+        gap: 70px;
+        margin-left: 20%;
+    }
+
+    .cod h2{
+        margin-left: -20%;
+        align-items: center;
+    }
+
+    .prot h2{
+        margin-left: -20%;
+        align-items: center; 
+    }
+
+    .jogo h2{
+        margin-left: -20%;
+        align-items: center;
+    }
+}

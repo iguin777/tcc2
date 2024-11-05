@@ -1,0 +1,71 @@
+.info{
+    background-image: url('./assets/landing/Fundo-QGJ.svg');
+    width: 1920px;
+    height: 767px;
+    margin-top: 300px;
+  }
+  
+  .img-monitor{
+    float: left;
+    margin-top: 104px;
+  }
+  
+  .txt-info{
+    margin-right: 60px;
+  }
+  .title-info{
+    width: 647px;
+    height: 66.666px;
+    flex-shrink: 0;
+    float: right;
+  
+    background: linear-gradient(90deg, #FF90E7 56.18%, #E8B7FF 99.99%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Inter';
+    font-size: 56.308px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 63.588px; /* 112.929% */
+    letter-spacing: -1.126px;
+    margin-top:300px;
+    margin-right: 550px;
+  
+  }
+  
+  .description-info{
+    width: 1031px;
+    float: right;
+    color: #D4D4D4;
+    font-family: 'Inter';
+    font-size: 20.933px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: left;
+    margin-top: 30px;
+    margin-right: 155px;
+  }
+  
+  #ba {
+    background-color: #1D1D1D;
+    overflow-x: hidden;
+    width: 100%;
+    
+  }
+  
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  

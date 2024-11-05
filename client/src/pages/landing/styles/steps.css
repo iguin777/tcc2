@@ -1,0 +1,74 @@
+.steps{
+    margin-top: 100px;
+}
+
+.block{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    margin-left: 150px;
+    gap: 80px;
+}
+.txt-steps{
+    margin-top: 150px;
+    font-family: Inter;
+    font-size: 32.093px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 66.733px; /* 112.929% */
+    letter-spacing: -1.182px;
+    background: linear-gradient(90deg, #B1008A 0%, #8900C9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero{
+    float: right;
+    margin-top: 270px;
+    position: relative;
+    
+}
+
+.blur-3{
+    float: right;
+    width: 489px;
+    height: 489px;
+    flex-shrink: 0;
+    margin-top: 500px;
+    margin-right: -1000px;
+    border-radius: 489px;
+    background: linear-gradient(171deg, #8900C9 45.63%, #B1008A 93.04%);
+    filter: blur(157.48793029785156px);
+}
+
+@media screen and (max-width: 1370px) {
+    .block{
+        margin-left: 0%;
+    }
+
+    .hero{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 1170px) {
+    .block{
+        margin-left: 30%;
+    }
+    .txt-steps{
+        margin-top: -50%;
+        text-align: center;
+        width: 70%;
+        margin-left: -14%;
+    }
+
+    .step img{
+        width: 400px;
+        margin-left: -28%;
+    }
+    .hero{
+        display: none;
+    }
+}

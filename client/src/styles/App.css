@@ -1,0 +1,24 @@
+@import url('../components/header/header.css');
+@import url('../components/header-h/headerH.css');
+@import url('../components/clima/clima.css');
+@import url('../pages/landing/landing.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('../components/footer/footer.css');
+@import url('../pages/login/login.css');
+@import url('../components/botão-back/button.css');
+@import url('../pages/home/home.css');
+
+:root {
+    --color-primary-1: #B1008A ;
+    --color-primary-2: #8900C9;
+  }
+
+#ba {
+  background-color: #1D1D1D;
+  overflow-x: hidden;
+  width: 100%;
+  
+}
+.landing{
+  scroll-behavior: smooth;
+}

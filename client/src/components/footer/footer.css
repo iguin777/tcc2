@@ -1,0 +1,116 @@
+.footer {
+    margin-top: 1500px;
+    width: 100%;
+    height: 270px;
+    background: linear-gradient(90deg, #B1008A 0%, #8900C9 100%);
+}
+
+.ancoras{
+    margin-top: 70%;
+}
+
+.link{
+    margin-top: 50%;
+}
+
+ul {
+    list-style: none;
+}
+
+.links {
+    margin-top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links .icon-content {
+    margin: 0 10px;
+    position: relative;
+}
+
+.links .icon-content .tooltip {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.links .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+
+.links .icon-content .link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.links .icon-content .link:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+
+.links .icon-content .link svg {
+    width: 30px;
+    height: 30px;
+}
+
+
+.botao {
+    border-radius: 26px;
+    background: linear-gradient(280deg, #1D1D1D 66.28%, #838383 192.16%);
+    width: 395px;
+    height: 157px;
+    flex-shrink: 0;
+    float: left;
+    margin-left: 70px;
+    margin-top: -20px;
+}
+
+.botao h5 {
+    margin-top: 40px;
+    color: #A5A5A5;
+    font-family: Inter;
+    font-size: 24.868px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28.083px;
+    /* 112.929% */
+    letter-spacing: -0.497px;
+}
+
+.images {
+    margin-top: 30px;
+    margin-left: 42%;
+    display: flex;
+    flex-direction: row;
+    gap: 130px;
+}
+
+@media screen and (max-width: 1170px) {
+    .footer{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    .footer{
+        display: none;
+    }
+}

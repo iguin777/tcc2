@@ -10,7 +10,7 @@ git branch -M main
 git remote add origin https://github.com/iguin777/teste.git  
 git push -u origin main  
 
-## checklist 
+## Checklist 
 
 - [x] Landing page e login responsivos
 - [x] Organizar pasta

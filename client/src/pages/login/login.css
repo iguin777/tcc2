@@ -37,7 +37,9 @@ body{
     overflow-x: hidden;
     width: 100%;
     display: flex;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login .blur {
@@ -54,7 +56,7 @@ body{
 }
 
 .btn-i {
-    position: absolute;
+    position: fixed;
     left: 24%;
     top: 30%
 }
@@ -72,7 +74,7 @@ body{
     height: fit-content;
     background-color: #2b2b2b;
     margin-left: 4%;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 
 .content {
@@ -93,8 +95,6 @@ body{
     height: 100%;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-
-
     left: 0;
 }
 
@@ -186,7 +186,6 @@ body{
 
 .btn-second {
     background: linear-gradient(90deg, #8900C9 0%, #B1008A 100%);
-    ;
     border: 1px solid #b1008b34;
     transition: background-color .5s;
 }
@@ -287,6 +286,63 @@ input:-webkit-autofill {
     color: #B1008A;
     padding: 0 5px;
 }
+
+
+/* Estilizando o botão de upload */
+.file-upload-label {
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    border-radius: 10px;
+    width: 95%;
+    border: none;
+    display: flex;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(90deg, #8900C9 0%, #B1008A 100%);
+    color: #ffffff;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    user-select: none;
+    gap: 0.75rem;
+    box-shadow:
+      0 4px 6px -1px #25001d,
+      0 2px 4px -1px #8900C9;
+    transition: all 0.6s ease;
+  }
+  
+  /* Efeito de hover */
+  .file-upload-label:hover {
+    box-shadow:
+      0 10px 15px -3px #B1008A,
+      0 4px 6px -2px #8900C9;
+  }
+  
+  /* Efeito de foco e ativo */
+  .file-upload-label:focus,
+  .file-upload-label:active {
+    opacity: 0.85;
+    box-shadow: none;
+  }
+  
+  /* Estilizando o ícone dentro do label */
+  .file-upload-label svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  /* Escondendo o input real de arquivo */
+  input[type="file"] {
+    display: none; /* O campo de input de arquivo real está escondido */
+  }
+  
+  
 
 /* second content*/
 

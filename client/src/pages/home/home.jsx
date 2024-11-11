@@ -16,6 +16,7 @@ function Home() {
   }
   return (
     <div className="home">
+
       <HeaderH
         Text="Inicio"
         Text2="Chat"
@@ -26,33 +27,53 @@ function Home() {
         onClick2="."
         onClick3="."
       />
-      <div className="carrosel">
-        <img src={Publi} alt="publi" />
-      </div>
-      <div className="etapas">
-        <div className="text-h">
-          <h3>Etapas</h3>
-          <p>Fique de olho nas etapas da competição</p>
+      <div className="container-home">
+        <div className="carrosel">
+          <img src={Publi} alt="publi" />
         </div>
-        <div className="card-etp">
-          <img src={Card1} alt="" className="cards-etp" />
-          <img src={Card2} alt="" className="cards-etp" />
-          <img src={Card3} alt="" className="cards-etp" />
+        <div className="etapas">
+          <div className="text-h">
+            <h3>Etapas</h3>
+            <p>Fique de olho nas etapas da competição</p>
+          </div>
+          <div className="card-etp">
+            <img src={Card1} alt="" className="cards-etp" />
+            <img src={Card2} alt="" className="cards-etp" />
+            <img src={Card3} alt="" className="cards-etp" />
+          </div>
         </div>
-      </div>
-      <div className="publi">
-        <img src={Publi2} alt="" />
-      </div>
-      <div className="calen">
-        <Calendar />
-      </div>
-      <div>
-        <Clima />
-      </div>
-      <div className="container">
-        <h2>{usuario.nome}</h2>
-        <div className="perfil">
-          <img src={usuario.fotoPerfil} alt="Foto de Perfil" width="150" />
+        <div className="publi">
+          <img src={Publi2} alt="" />
+        </div>
+        <div className="calen">
+          <Calendar />
+        </div>
+
+        <div className="card-perfil">
+          <div className="perfil">
+            <h2 className='nomeuser'>Olá, <br /> {usuario.nome}</h2>
+            <img src={usuario.fotoPerfil} alt="Foto de Perfil" className='img-Perfil' />
+          </div>
+          <br />
+          <hr style={{ border: 'none', borderTop: '2px solid #545454', width: '359px', marginLeft: '30px', margintop: '50px' }} />
+          <br />
+
+          <div className="equipe">
+            <div className="rectangle-parent">
+              <div className="equipe1">Equipe</div>
+              <div className="haumana">{usuario.equipe}</div>
+              <div className="equipe-child"></div>
+            </div>
+          </div>
+          <div className='clima'>
+            <Clima />
+          </div>
+
+          <div className="areaC">
+            <div className="group-child">
+            </div>
+            <div className="rea-do-competidor">Área do competidor</div>
+          </div>
         </div>
       </div>
     </div>

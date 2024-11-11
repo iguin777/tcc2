@@ -6,13 +6,13 @@
 }
 
 .carrosel {
-    margin-left: 135px;
+    margin-left: 4%;
 }
 
 .etapas {
     float: right;
     margin-top: -43%;
-    margin-right: 24%;
+    margin-right: 28%;
 }
 
 .text-h h3 {
@@ -35,20 +35,191 @@
     letter-spacing: -0.414px;
 }
 
-.card-etp{
+.card-etp {
     margin-top: 2%;
     display: flex;
     flex-direction: row;
     gap: 30px;
 }
 
-.publi{
+.publi {
     margin-top: -23%;
-    margin-left: 28.9%;
+    margin-left: 26.0%;
 }
 
-.calen{
-    margin-top: -22.5%;
-    margin-left: 9%;
+.calen {
+    margin-top: -22.0%;
+    margin-left: 2%;
 
 }
+
+.card-perfil {
+    float: right;
+    margin-top: -39%;
+    margin-right: 3%;
+    width: 421px;
+    height: 719px;
+    flex-shrink: 0;
+    border-radius: 38px;
+    background: #303030;
+}
+
+.perfil {
+    display: flex;
+    flex-direction: row;
+}
+
+.img-Perfil {
+    width: 116px;
+    height: 118.762px;
+    flex-shrink: 0;
+    border-radius: 118.762px;
+    margin-top: 24px;
+}
+
+.nomeuser {
+    width: 261px;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 38.69px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 43.692px;
+    letter-spacing: -0.774px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.group-child {
+    position: absolute;
+    top: 6px;
+    left: 108px;
+    border-radius: 15px;
+    background: linear-gradient(180deg, #8900c9, #b1008a);
+    width: 47px;
+    height: 40px;
+}
+
+.div {
+    position: absolute;
+    top: 12px;
+    left: 116px;
+    font-weight: 600;
+}
+
+.group-item {
+    position: absolute;
+    top: 0px;
+    left: 65.77px;
+    border-radius: 50%;
+    width: 50.2px;
+    height: 51.4px;
+    object-fit: cover;
+}
+
+.group-inner {
+    position: absolute;
+    top: 1.2px;
+    left: 33.48px;
+    border-radius: 50%;
+    width: 50.2px;
+    height: 51.4px;
+    object-fit: cover;
+}
+
+.ellipse-icon {
+    position: absolute;
+    top: 1.2px;
+    left: 0px;
+    border-radius: 50%;
+    width: 50.2px;
+    height: 51.4px;
+    object-fit: cover;
+}
+
+.rectangle-parent {
+    position: absolute;
+    top: 14px;
+    left: 5%;
+    width: 155px;
+    height: 52.6px;
+}
+
+.equipe1 {
+    position: absolute;
+    top: 0px;
+    left: 4px;
+    font-size: 15.46px;
+    letter-spacing: -0.02em;
+    line-height: 17.46px;
+    font-weight: 300;
+    color: #c5c5c5;
+}
+
+.haumana {
+    position: absolute;
+    top: 18px;
+    left: 4px;
+    font-size: 26.17px;
+    letter-spacing: -0.02em;
+    line-height: 29.56px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.equipe-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 4px;
+    background: linear-gradient(180deg, #b1008a, #8900c9);
+    width: 3px;
+    height: 45px;
+}
+
+.equipe {
+    width: 100%;
+    position: relative;
+    height: 107.6px;
+    text-align: left;
+    font-size: 24.35px;
+    color: #d4d4d4;
+    font-family: Inter;
+}
+
+.clima{
+    margin-left: 17px;
+    margin-top: -30px;
+}
+
+.group-child {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #b1008a, #8900c9);
+    width: 380px;
+    height: 244px;
+}
+
+.rea-do-competidor {
+    position: absolute;
+    top: 24px;
+    left: 15px;
+    letter-spacing: -0.02em;
+    line-height: 27.12px;
+    font-weight: 600;
+}
+
+.areaC {
+    width: 100%;
+    position: relative;
+    height: 244px;
+    text-align: left;
+    font-size: 24.02px;
+    color: #fff;
+    font-family: Inter;
+    left: 20px;
+    top: 40px;
+}
+

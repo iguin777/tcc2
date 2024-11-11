@@ -33,7 +33,8 @@ const RealTimeCalendar = () => {
           <div
             key={day}
             style={{
-              width: '40px',
+              width: '73px',
+              height: '44px',
               padding: '10px',
               textAlign: 'center',
               backgroundColor: isToday ? '#8900C9' : isCurrentMonth ? '#' : '#444444',
@@ -54,14 +55,14 @@ const RealTimeCalendar = () => {
   };
 
   return (
-    <div style={{ backgroundColor: '#303030', color: '#ffffff', padding: '20px', borderRadius: '38px', width: 'fit-content', margin: '0 auto', height:'413px' }}>
+    <div style={{ backgroundColor: '#303030', color: '#ffffff', padding: '20px', borderRadius: '38px', width: '565px', marginLeft: '41%', height:'413px' }}>
       <h2 style={{ color: '#8900C9', textAlign: 'left' }}>{format(currentDate, 'MMMM, yyyy', { locale: ptBR })}</h2>
       <br />
       <hr style={{border: 'none', borderTop: '2px solid #545454',}} />
       <br />
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
         {weekDays.map((day) => (
-          <div key={day} style={{ width: '43px', textAlign: 'center', color: '#B1008A', fontWeight: 'bold' }}>
+          <div key={day} style={{ width: '73px', textAlign: 'center', color: '#B1008A', fontWeight: 'bold' }}>
             {day}
           </div>
         ))}

@@ -8,6 +8,7 @@ const Login = () => {
   const { login } = useUsuario(); // Pega a função login do contexto de usuário
   const [bodyClass, setBodyClass] = useState('');
   const [nome, setNome] = useState('');
+  const [equipe, setEquipe] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [fotoPerfil, setFotoPerfil] = useState(null);
@@ -30,10 +31,10 @@ const Login = () => {
     }
 
     // Chama a função de cadastro (pode processar dados aqui, como enviar para o servidor)
-    onCadastro({ nome, email, fotoPerfil });
+    onCadastro({ nome, email, fotoPerfil, equipe });
 
     // Realiza o login do usuário automaticamente após o cadastro
-    login({ nome, email, fotoPerfil }); // Loga o usuário no contexto
+    login({ nome, email, fotoPerfil, equipe }); // Loga o usuário no contexto
 
     // Redireciona para a página /home
     navigate('/home');
@@ -55,7 +56,7 @@ const Login = () => {
 
   return (
     <div className={`login ${bodyClass}`}>
-      <div className="blur"></div>
+
 
       <div className="container">
         <div className="content first-content">
@@ -74,6 +75,7 @@ const Login = () => {
             </button>
           </div>
           <div className="second-column">
+            <span className="span">‎ </span>
             <h2 className="title-l title-second-1">Crie sua conta</h2>
             <div className="social-media">
               <ul className="list-social-media">
@@ -124,6 +126,11 @@ const Login = () => {
                 <i className="fas fa-school icon-modify"></i>
                 <input type="text" id="etec-signup" placeholder="Etec" />
               </label>
+              <label className="label-input" htmlFor="equipe-signup">
+                <span className="span">‎ </span>
+                <i className="fas fa-school icon-modify"></i>
+                <input type="text" id="equipe-signup" placeholder="Equipe"  onChange={(e) => setEquipe(e.target.value)} />
+              </label>
               <label className="label-input" htmlFor="password-signup">
                 <span className="span">‎ </span>
                 <i className="fas fa-lock icon-modify"></i>
@@ -137,27 +144,51 @@ const Login = () => {
                 />
               </label>
 
-              <label className="label-input" htmlFor="perfil-signup">
-                <span className="span">‎ </span>
-                <i className="fas fa-photo icon-modify"></i>
+              <label className="file-upload-label" htmlFor="perfil-signup">
+                <svg
+                  aria-hidden="true"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeWidth="2"
+                    stroke="#fffffff"
+                    d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125"
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                  ></path>
+                  <path
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                    strokeWidth="2"
+                    stroke="#fffffff"
+                    d="M17 15V18M17 21V18M17 18H14M17 18H20"
+                  ></path>
+                </svg>
+                Escolha sua foto de perfil
                 <input
                   type="file"
                   id="perfil-signup"
-                  placeholder="Foto de Perfil"
                   accept="image/*"
                   onChange={handleFotoChange}
                   required
                 />
               </label>
 
+
+
               {fotoPerfil && (
                 <div className="preview">
-                  <img src={fotoPerfil} alt="Foto de Perfil" width="100" />
+                  <img src={fotoPerfil} alt="Foto de Perfil" width="70" />
                 </div>
               )}
               <button type="submit" className="btn btn-second">
                 Continuar
               </button>
+              <span className="span">‎ </span>
             </form>
           </div>
         </div>

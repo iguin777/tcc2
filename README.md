@@ -1,11 +1,13 @@
 ## Executar
 
-cd client <br/>  npm install  <br/>  npm start 
+cd client   
+npm install    
+npm start 
 
 ## Subir para o git
 git init  
 git add .  
-git commit -m "first commit"  
+git commit -m "Deixando tela de login responsiva"  
 git branch -M main  
 git remote add origin https://github.com/iguin777/teste.git  
 git push -u origin main  

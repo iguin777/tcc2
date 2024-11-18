@@ -72,8 +72,7 @@ const Card = () => {
                         São Paulo, BR
                     </h7>
                     <div className="range-cli ">
-                        <div className="fill-cli ">
-                        </div>
+                        <div className="fill-cli"></div>
                     </div>
                 </div>
             </div>

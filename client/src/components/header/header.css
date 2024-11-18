@@ -107,9 +107,11 @@ header {
         list-style: none;
     }
     .example-1 {
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
         gap: 7%;
         margin-top: 165%;
-        margin-left: 15%;
+        left: 6%;
         position: fixed;
         display: flex;
         justify-content: center;
@@ -125,11 +127,11 @@ header {
     .example-1 .icon-content {
         top: -10px;
         margin: 0 10px;
-        position: relative;
+        position: fixed;
         font-weight: bolder;
     }
     .example-1 .icon-content .tooltip {
-        position: absolute;
+        position: fixed;
         top: -30px;
         left: 50%;
         transform: translateX(-50%);

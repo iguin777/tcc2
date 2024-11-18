@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import '../../styles/App.css';
+import ScrollReveal from 'scrollreveal';
 import Header from '../../components/header/Header.jsx'
 import Hero from '../../assets/landing/heros.svg';
 import pc from '../../assets/landing/pc.svg';
@@ -10,11 +12,79 @@ import hero from '../../assets/landing/hero.png';
 import Footer from '../../components/footer/footer.jsx';
 
 
+
 function Landing() {
+    useEffect(() => {
+        const menuBtn = document.getElementById("menu-btn");
+        const navLinks = document.getElementById("nav-links");
+    
+        if (menuBtn && navLinks) {
+          const menuBtnIcon = menuBtn.querySelector("i");
+    
+          menuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("open");
+            const isOpen = navLinks.classList.contains("open");
+            menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+          });
+    
+          navLinks.addEventListener("click", () => {
+            navLinks.classList.remove("open");
+            menuBtnIcon.setAttribute("class", "ri-menu-line");
+          }); 
+        }
+    
+        const scrollRevealOption = {
+          distance: "50px",
+          origin: "bottom",
+          duration: 1000,
+        };
+
+    
+        ScrollReveal().reveal(".title", {
+          ...scrollRevealOption,
+          origin: "left",
+        });
+        ScrollReveal().reveal(".description", {
+            ...scrollRevealOption,
+            origin: "left",
+          });
+          
+        ScrollReveal().reveal(".banner", {
+            ...scrollRevealOption,
+            origin: "right",
+          });
+        ScrollReveal().reveal(".pc", {
+          ...scrollRevealOption,
+          delay: 800,
+        });
+    
+        ScrollReveal().reveal(".txt-info", {
+          ...scrollRevealOption,
+          delay: 1000,
+        });
+    
+        ScrollReveal().reveal(".txt-apre", {
+          ...scrollRevealOption,
+          delay: 1500,
+        });
+    
+        ScrollReveal().reveal(".card", {
+          ...scrollRevealOption,
+          delay: 1700,
+        });
+    
+        ScrollReveal().reveal(".steps", {
+          duration: 1000,
+          interval: 500,
+          delay: 2500,
+        });
+      }, []);
+
+
     return ( 
         
         <div className="landing" id='ba'>
-          <Header Text="Inicio" Text2="Como funciona?" Text3="Regulamento" onClick="/login" />
+          <Header Text="Inicio" Text2="Como funciona?" Text3="Regulamento" onClick="/login" className="header" />
 
             
             <section id="home">
@@ -43,7 +113,7 @@ function Landing() {
             <section className="info">
 
                 <div className="img-monitor">
-                    <img src={pc} alt="pc" />
+                    <img src={pc} alt="pc" className='pc'/>
                 </div>
                 <div className="txt-info">
                     <h1 className="title-info">O que é uma GameJam?</h1>

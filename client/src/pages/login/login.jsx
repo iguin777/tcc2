@@ -1,10 +1,54 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../../styles/App.css';
 import Button from '../../components/botão-back/button.jsx';
 import { useUsuario } from '../../context/UsuarioContext';
+import ScrollReveal from 'scrollreveal';
 
 const Login = () => {
+
+  //animação
+
+  useEffect(() => {
+    const menuBtn = document.getElementById("menu-btn");
+    const navLinks = document.getElementById("nav-links");
+
+    if (menuBtn && navLinks) {
+      const menuBtnIcon = menuBtn.querySelector("i");
+
+      menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        const isOpen = navLinks.classList.contains("open");
+        menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+      });
+
+      navLinks.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtnIcon.setAttribute("class", "ri-menu-line");
+      });
+    }
+
+    const scrollRevealOption = {
+      distance: "50px",
+      origin: "bottom",
+      duration: 1000,
+    };
+
+
+    ScrollReveal().reveal(".container", {
+      ...scrollRevealOption,
+      origin: "left",
+    });
+
+    ScrollReveal().reveal(".btn-i", {
+      ...scrollRevealOption,
+      origin: "right",
+    });
+
+  }, []);
+
+
+
   const { login } = useUsuario(); // Pega a função login do contexto de usuário
   const [bodyClass, setBodyClass] = useState('');
   const [nome, setNome] = useState('');
@@ -57,7 +101,9 @@ const Login = () => {
   return (
     <div className={`login ${bodyClass}`}>
 
-
+      <div className="btn-i">
+        <Button className="bt" />
+      </div>
       <div className="container">
         <div className="content first-content">
           <div className="first-column">
@@ -129,7 +175,7 @@ const Login = () => {
               <label className="label-input" htmlFor="equipe-signup">
                 <span className="span">‎ </span>
                 <i className="fas fa-school icon-modify"></i>
-                <input type="text" id="equipe-signup" placeholder="Equipe"  onChange={(e) => setEquipe(e.target.value)} />
+                <input type="text" id="equipe-signup" placeholder="Equipe" onChange={(e) => setEquipe(e.target.value)} />
               </label>
               <label className="label-input" htmlFor="password-signup">
                 <span className="span">‎ </span>
@@ -237,9 +283,7 @@ const Login = () => {
             </form>
           </div>
         </div>
-        <div className="btn-i">
-          <Button className="bt" />
-        </div>
+
       </div>
     </div>
   );

@@ -1,62 +1,20 @@
+import { useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import '../../styles/App.css';
-import Button from '../../components/botão-back/button.jsx';
-import { useUsuario } from '../../context/UsuarioContext';
-import ScrollReveal from 'scrollreveal';
 
-const Login = () => {
+const UserForm = () => {
+  const [formData, setFormData] = useState({
+    nome: '',
+    fk_equipe_id: '',
+    email: '',
+    telefone: '',
+    usuario_rm: '',
+    senha: '',
+    etec: '',
+  });
 
-  //animação
-
-  useEffect(() => {
-    const menuBtn = document.getElementById("menu-btn");
-    const navLinks = document.getElementById("nav-links");
-
-    if (menuBtn && navLinks) {
-      const menuBtnIcon = menuBtn.querySelector("i");
-
-      menuBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-        const isOpen = navLinks.classList.contains("open");
-        menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
-      });
-
-      navLinks.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuBtnIcon.setAttribute("class", "ri-menu-line");
-      });
-    }
-
-    const scrollRevealOption = {
-      distance: "50px",
-      origin: "bottom",
-      duration: 1000,
-    };
-
-
-    ScrollReveal().reveal(".container", {
-      ...scrollRevealOption,
-      origin: "left",
-    });
-
-    ScrollReveal().reveal(".btn-i", {
-      ...scrollRevealOption,
-      origin: "right",
-    });
-
-  }, []);
-
-
-
-  const { login } = useUsuario(); // Pega a função login do contexto de usuário
-  const [bodyClass, setBodyClass] = useState('');
-  const [nome, setNome] = useState('');
-  const [equipe, setEquipe] = useState('');
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-  const [fotoPerfil, setFotoPerfil] = useState(null);
-  const navigate = useNavigate(); // Para navegação para a página /home
+  const [bodyClass, setBodyClass] = useState(''); // Adicionado aqui
+  const navigate = useNavigate(); // Hook para redirecionamento
 
   const handleSignIn = () => {
     setBodyClass('sign-in-js');
@@ -66,44 +24,28 @@ const Login = () => {
     setBodyClass('sign-up-js');
   };
 
-  // Função para envio dos dados do formulário de cadastro
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!nome || !email || !senha || !fotoPerfil) {
-      alert('Por favor, preencha todos os campos.');
-      return;
-    }
+    try {
+      const response = await axios.post('http://localhost:5000/api/users/create', formData);
+      alert(response.data.message);
 
-    // Chama a função de cadastro (pode processar dados aqui, como enviar para o servidor)
-    onCadastro({ nome, email, fotoPerfil, equipe });
-
-    // Realiza o login do usuário automaticamente após o cadastro
-    login({ nome, email, fotoPerfil, equipe }); // Loga o usuário no contexto
-
-    // Redireciona para a página /home
-    navigate('/home');
-  };
-
-  // Função que recebe os dados de cadastro (aqui você pode processar ou salvar no estado global)
-  const onCadastro = (data) => {
-    console.log('Dados do cadastro:', data);
-    // Aqui você pode armazenar os dados, fazer requisições, ou outras ações conforme necessário
-  };
-
-  // Função para lidar com a mudança de foto de perfil
-  const handleFotoChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setFotoPerfil(URL.createObjectURL(file));
+      // Redireciona para a página home se o cadastro for bem-sucedido
+      if (response.status === 201) { // Supondo que um status 201 seja retornado para sucesso
+        navigate('/home');
+      }
+    } catch (error) {
+      console.error('Erro ao enviar dados:', error);
+      alert('Erro ao criar usuário.');
     }
   };
 
   return (
     <div className={`login ${bodyClass}`}>
-
-      <div className="btn-i">
-        <Button className="bt" />
-      </div>
       <div className="container">
         <div className="content first-content">
           <div className="first-column">
@@ -120,8 +62,8 @@ const Login = () => {
               Entrar
             </button>
           </div>
+
           <div className="second-column">
-            <span className="span">‎ </span>
             <h2 className="title-l title-second-1">Crie sua conta</h2>
             <div className="social-media">
               <ul className="list-social-media">
@@ -142,99 +84,43 @@ const Login = () => {
             <p className="description-l description-second-1">
               Ou use seu email para se registrar:
             </p>
-            <form className="form" onSubmit={handleSubmit}>
-              <label className="label-input" htmlFor="name">
-                <span className="span">‎ </span>
+            <form onSubmit={handleSubmit} className="form">
+              <label className="label-input" htmlFor="nome">
+                <span>‎ </span>
                 <i className="far fa-user icon-modify"></i>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Nome"
-                  value={nome}
-                  onChange={(e) => setNome(e.target.value)}
-                  required
-                />
+                <input type="text" id="nome" name="nome" onChange={handleChange} placeholder="Nome" required />
               </label>
-              <label className="label-input" htmlFor="email-signup">
-                <span className="span">‎ </span>
+              <label className="label-input" htmlFor="fk_equipe_id">
+                <span>‎ </span>
+                <i className="fas fa-school icon-modify"></i>
+                <input type="number" id="fk_equipe_id" name="fk_equipe_id" onChange={handleChange} placeholder="Equipe" required />
+              </label>
+              <label className="label-input" htmlFor="email">
+                <span>‎ </span>
                 <i className="far fa-envelope icon-modify"></i>
-                <input
-                  type="email"
-                  id="email-signup"
-                  placeholder="Email institucional"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
+                <input type="email" id="email" name="email" onChange={handleChange} required placeholder="Email" />
               </label>
-              <label className="label-input" htmlFor="etec-signup">
-                <span className="span">‎ </span>
+              <label className="label-input" htmlFor="telefone">
+                <span>‎ </span>
+                <i className="fas fa-phone icon-modify"></i>
+                <input type="text" id="telefone" name="telefone" onChange={handleChange} required placeholder="Telefone" />
+              </label>
+              <label className="label-input" htmlFor="usuario_rm">
+                <span>‎ </span>
+                <i className="fas fa-user-graduate icon-modify"></i>
+                <input type="text" id="usuario_rm" name="usuario_rm" onChange={handleChange} placeholder="RM" required />
+              </label>
+              <label className="label-input" htmlFor="etec">
+                <span>‎ </span>
                 <i className="fas fa-school icon-modify"></i>
-                <input type="text" id="etec-signup" placeholder="Etec" />
+                <input type="text" id="etec" name="etec" onChange={handleChange} required placeholder="Etec" />
               </label>
-              <label className="label-input" htmlFor="equipe-signup">
-                <span className="span">‎ </span>
-                <i className="fas fa-school icon-modify"></i>
-                <input type="text" id="equipe-signup" placeholder="Equipe" onChange={(e) => setEquipe(e.target.value)} />
-              </label>
-              <label className="label-input" htmlFor="password-signup">
-                <span className="span">‎ </span>
+              <label className="label-input" htmlFor="senha">
+                <span>‎ </span>
                 <i className="fas fa-lock icon-modify"></i>
-                <input
-                  type="password"
-                  id="password-signup"
-                  placeholder="Senha"
-                  value={senha}
-                  onChange={(e) => setSenha(e.target.value)}
-                  required
-                />
+                <input type="password" id="senha" name="senha" onChange={handleChange} required placeholder="Senha" />
               </label>
-
-              <label className="file-upload-label" htmlFor="perfil-signup">
-                <svg
-                  aria-hidden="true"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeWidth="2"
-                    stroke="#fffffff"
-                    d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125"
-                    strokeLinejoin="round"
-                    strokeLinecap="round"
-                  ></path>
-                  <path
-                    strokeLinejoin="round"
-                    strokeLinecap="round"
-                    strokeWidth="2"
-                    stroke="#fffffff"
-                    d="M17 15V18M17 21V18M17 18H14M17 18H20"
-                  ></path>
-                </svg>
-                Escolha sua foto de perfil
-                <input
-                  type="file"
-                  id="perfil-signup"
-                  accept="image/*"
-                  onChange={handleFotoChange}
-                  required
-                />
-              </label>
-
-
-
-              {fotoPerfil && (
-                <div className="preview">
-                  <img src={fotoPerfil} alt="Foto de Perfil" width="70" />
-                </div>
-              )}
-              <button type="submit" className="btn btn-second">
-                Continuar
-              </button>
-              <span className="span">‎ </span>
+              <button type="submit" className="btn btn-second">Cadastrar</button>
             </form>
           </div>
         </div>
@@ -283,10 +169,9 @@ const Login = () => {
             </form>
           </div>
         </div>
-
       </div>
     </div>
   );
 };
 
-export default Login;
+export default UserForm;

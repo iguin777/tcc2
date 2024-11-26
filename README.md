@@ -7,7 +7,7 @@
 - [x] Organizar pasta
 - [x] Ligar com o banco no XAMPP
 - [ ] Deixar a pagina Home responsiva
-- [ ] Arrumar a tela de login/Permitir que o usuario faça login
+- [x] Arrumar a tela de login/Permitir que o usuario faça login
 - [ ] Pegar os dados do usuario e colocar na pagina Home
 - [ ] CRUD para edição de usuarios 
 

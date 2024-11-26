@@ -2,21 +2,21 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/database');
 
-// Rota para criar um novo usuário
-router.post('/create', (req, res) => {
-    const { nome, fk_equipe_id, email, telefone, usuario_rm, senha, etec } = req.body;
+// Rota para autenticar usuário
+router.post('/login', (req, res) => {
+    const { email, senha } = req.body;
 
-    const sql = `
-        INSERT INTO usuario (nome, fk_equipe_id, email, telefone, usuario_rm, senha, etec) 
-        VALUES (?, ?, ?, ?, ?, ?, ?)
-    `;
-
-    db.query(sql, [nome, fk_equipe_id, email, telefone, usuario_rm, senha, etec], (err, result) => {
+    const sql = 'SELECT * FROM usuario WHERE email = ? AND senha = ?';
+    db.query(sql, [email, senha], (err, results) => {
         if (err) {
-            console.error('Erro ao criar usuário:', err);
-            return res.status(500).json({ message: 'Erro ao criar usuário.' });
+            console.error('Erro ao autenticar usuário:', err);
+            return res.status(500).json({ message: 'Erro ao autenticar usuário.' });
         }
-        res.status(201).json({ message: 'Usuário criado com sucesso!' });
+        if (results.length > 0) {
+            res.status(200).json({ message: 'Login bem-sucedido!', user: results[0] });
+        } else {
+            res.status(401).json({ message: 'Credenciais inválidas.' });
+        }
     });
 });
 

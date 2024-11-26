@@ -1,8 +1,34 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import api from '../../services/api';
 
 const UserForm = () => {
+
+  //login
+
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [message, setMessage] = useState('');
+  const navigateLogin = useNavigate(); // Hook para navegação
+
+  const handleLogin = async (e) => {
+      e.preventDefault();
+
+      try {
+          const response = await api.post('/users/login', { email, senha });
+          setMessage(response.data.message);
+
+          // Verifica se o login foi bem-sucedido e redireciona
+          if (response.status === 200) {
+              navigateLogin('/home'); // Redireciona para a rota 'home'
+          }
+      } catch (error) {
+          setMessage(error.response?.data?.message || 'Erro ao fazer login.');
+      }
+  };
+
+
   const [formData, setFormData] = useState({
     nome: '',
     fk_equipe_id: '',
@@ -149,23 +175,35 @@ const UserForm = () => {
               </ul>
             </div>
             <p className="description-l description-second">ou use seu email para entrar:</p>
-            <form className="form">
+            <form onSubmit={handleLogin} className="form">
               <label className="label-input" htmlFor="email-login">
                 <span>‎ </span>
                 <i className="far fa-envelope icon-modify"></i>
-                <input type="email" id="email-login" placeholder="Email" />
+                <input
+                  id="email-login"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
               </label>
               <label className="label-input" htmlFor="password-login">
                 <span>‎ </span>
                 <i className="fas fa-lock icon-modify"></i>
-                <input type="password" id="password-login" placeholder="Senha" />
+                <input
+                  id="password-login"
+                  type="password"
+                  value={senha}
+                  onChange={(e) => setSenha(e.target.value)}
+                  required
+                />
               </label>
               <a href="/" className="password" onClick={(e) => e.preventDefault()}>
                 Esqueceu sua senha?
               </a>
-              <button type="submit" className="btn btn-second">
-                Entrar
-              </button>
+              <button type="submit" className="btn btn-second">Login</button>
+              {message && <p>{message}</p>}
+
             </form>
           </div>
         </div>

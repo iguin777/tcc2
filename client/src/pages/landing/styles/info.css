@@ -47,6 +47,50 @@
     margin-top: 30px;
     margin-right: 155px;
 }
+/* Media Queries para telas menores */
+@media screen and (max-width: 1600px) {
+
+    .description-info{
+        width: 699px;
+        margin-right: 26.7%;
+        margin-top: 1%;
+        font-size: 23px;
+    }
+
+}
+
+/* Quando a largura da tela for menor que 1370px */
+@media screen and (max-width: 1370px) {
+    .txt-info{
+        margin-right: 100px;
+    }
+    .title-info{
+        font-size: 42px;
+    }
+
+    .description-info{
+        width: 601px;
+        margin-right: 32.7%;
+        margin-top: 1%;
+        font-size: 19px;
+    }
+
+}
+
+/* Quando a largura da tela for menor que 1170px */
+@media screen and (max-width: 1170px) {
+ 
+}
+
+/* Quando a largura da tela for menor que 768px */
+@media screen and (max-width: 768px) {
+  
+}
+
+/* Quando a largura da tela for menor que 480px */
+@media screen and (max-width: 480px) {
+}
+
 @media screen and (max-width: 1370px) {
     .txt-info{
         margin-right: 100px;

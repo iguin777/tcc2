@@ -1,17 +1,22 @@
-.card{
+.card {
     display: flex;
     flex-direction: row;
     color: #D9D9D9;
     gap: 200px;
     margin-left: 16%;
     margin-top: 90px;
+    justify-content: space-between;
+    align-items: center; /* Centraliza os itens (imagens e textos) verticalmente */
 }
 
-.card img{
-    margin-left: 80px;
+.card img {
+    max-width: 100%; /* Garante que a imagem não ultrapasse o limite do contêiner */
+    display: block; /* Para garantir que a imagem seja tratada como um bloco */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+    object-fit: contain; /* Mantém a proporção da imagem sem distorções */
 }
 
-.card p{
+.card p {
     width: 300px;
     margin-top: 20px;
     font-style: normal;
@@ -20,27 +25,26 @@
     text-align: center;
 }
 
-.card h2{
+.card h2 {
     margin-top: 40px;
     text-align: center;
-
 }
 
-#top{
-    margin-top: 60px ;
+#top {
+    margin-top: 60px;
 }
 
-#top2{
+#top2 {
     margin-top: 34px;
 }
 
-.txt-apre h1{
+.txt-apre h1 {
     margin-top: 150px;
     font-family: Inter;
     font-size: 47.093px;
     font-style: normal;
     font-weight: 700;
-    line-height: 66.733px; 
+    line-height: 66.733px;
     letter-spacing: -1.182px;
     background: linear-gradient(90deg, #B1008A 0%, #8900C9 100%);
     background-clip: text;
@@ -49,47 +53,136 @@
     text-align: center;
 }
 
-.blur-2{
+.blur-2 {
     float: left;
     width: 489px;
     height: 489px;
     flex-shrink: 0;
     margin-top: -30px;
     margin-left: -400px;
-
     border-radius: 489px;
     background: linear-gradient(171deg, #8900C9 45.63%, #B1008A 93.04%);
     filter: blur(157.48793029785156px);
 }
 
-@media screen and (max-width: 1370px) {
-    .card{
-        margin-left: 4%;
-        gap: 10%;
-
+/* Media Queries para telas menores */
+@media screen and (max-width: 1600px) {
+    .card {
+        margin-left: 8%;
+        margin-right: 8%;
+        gap: 0%;
     }
 }
 
+/* Quando a largura da tela for menor que 1370px */
+@media screen and (max-width: 1370px) {
+    .card {
+        margin-left: 4%;
+        gap: 10%;
+    }
+}
+
+/* Quando a largura da tela for menor que 1170px */
 @media screen and (max-width: 1170px) {
-    .card{
+    .card {
         display: flex;
         flex-direction: column;
         gap: 70px;
         margin-left: 20%;
+        margin-right: 20%;
+        justify-content: center; /* Centraliza os cards horizontalmente */
+        align-items: center; /* Alinha os itens verticalmente */
     }
 
-    .cod h2{
-        margin-left: -20%;
+    .card img {
+        margin-left: 0;
+        margin-right: 0; /* Remover margem à direita */
+        width: 100%; /* Ajustar a largura para caber no contêiner */
+        object-fit: contain; /* Garante que a imagem mantenha a proporção */
+    }
+
+    .card p {
+        width: 100%;
+    }
+
+    .cod h2,
+    .prot h2,
+    .jogo h2 {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .txt-apre h1 {
+        font-size: 36px;
+        margin-top: 100px;
+    }
+
+    .blur-2 {
+        width: 300px;
+        height: 300px;
+        margin-left: -100px;
+    }
+}
+
+/* Quando a largura da tela for menor que 768px */
+@media screen and (max-width: 768px) {
+
+    .card {
+        margin-left: 5%;
+        gap: 40px;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
     }
 
-    .prot h2{
-        margin-left: -20%;
-        align-items: center; 
+    .txt-apre h1 {
+        font-size: 28px;
+        margin-top: 60px;
     }
 
-    .jogo h2{
-        margin-left: -20%;
+    .blur-2 {
+        width: 200px;
+        height: 200px;
+        margin-left: -50px;
+    }
+}
+
+/* Quando a largura da tela for menor que 480px */
+@media screen and (max-width: 480px) {
+    .aprender{
+        margin-top: 50%;
+    }
+    .card {
+        margin-left: 9%;
+        gap: 20px;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
+    }
+    .card img {
+        margin-left: 38%;
+        width: 40%;
+    }
+    .card h2 {
+        margin-left: 18%;
+    }
+
+    .card p {
+        width: 100%;
+        font-size: 14px;
+        margin-left: 8%;
+        margin-top: 1%;
+    }
+
+    .txt-apre h1 {
+        font-size: 42px;
+        margin-top: 40px;
+      
+    }
+
+    .blur-2 {
+        width: 150px;
+        height: 150px;
+        margin-left: -30px;
     }
 }

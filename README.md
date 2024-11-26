@@ -32,6 +32,7 @@ npm install
 npm start 
 
 cd backend
+npm install
 node server.js
 ```
 
@@ -41,7 +42,7 @@ Para contribuir com o TCC, siga estas etapas:
 ```
 git init  
 git add .  
-git commit -m "Deixando tela de login responsiva"  
+git commit -m "Deixando tela de 'landing' responsiva"  
 git branch -M main  
 git remote add origin https://github.com/iguin777/teste.git  
 git push -u origin main  

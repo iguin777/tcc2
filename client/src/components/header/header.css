@@ -88,15 +88,28 @@ header {
 .example-1{
     display: none;
 }
-@media screen and (max-width: 1370px) {
-    header {
-        margin-left: 15%;
+/* Media Queries para telas menores */
+@media screen and (max-width: 1600px) {
+    #header{
+        margin-right: 20%;
     }
-
-    
 }
 
-@media screen and (max-width: 1170px) {
+
+
+/* Quando a largura da tela for menor que 1370px */
+@media screen and (max-width: 1370px) {
+    @media screen and (max-width: 1370px) {
+        #header {
+           margin-right: -10%;
+        }
+    }
+}
+
+
+
+
+/*@media screen and (max-width: 768px) {
     #nav_list {
         display: none;
     }
@@ -170,5 +183,5 @@ header {
         height: 30px;
         fill: #fff;
     }
-};
+};*/
 

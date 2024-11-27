@@ -121,7 +121,18 @@
         margin-right: 50px;
         margin-top: -340px;
         width: 500px;
-        
+        .blur{
+    float: right;
+    width: 489px;
+    height: 489px;
+    flex-shrink: 0;
+    margin-top: -600px;
+    margin-right: -270px;
+
+    border-radius: 489px;
+    background: linear-gradient(171deg, #8900C9 45.63%, #B1008A 93.04%);
+    filter: blur(157.48793029785156px);
+}
     }
     
     .title{
@@ -195,5 +206,41 @@
 
 /* Quando a largura da tela for menor que 480px */
 @media screen and (max-width: 480px) {
+    .title{
+        margin-left: -3%;
+        font-size: 44px;
+        text-align: center;
+    }
+    .description{
+        text-align: center;
+        margin-left: 8%;
+        font-size: 19px;
+        width: 85%;
+    }
+    .banner{
+        display: none;
+    }
+    .btn-home{
+        margin-left: 20%;
+    }
 }
+@media screen and (max-width: 380px) {
+    .title{
+        margin-left: 1%;
+        font-size: 35px;
+        text-align: center;
+        width: 97%;
+        line-height: 120%; /* 112.929% */
 
+    }
+    .description{
+        text-align: center;
+        margin-left: 8%;
+        margin-top: -3%;
+        font-size: 17px;
+        width: 85%;
+        line-height: 120%; /* 112.929% */
+    letter-spacing: -0.963px;
+
+    }
+}

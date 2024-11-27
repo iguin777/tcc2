@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
 
@@ -13,19 +12,19 @@ const UserForm = () => {
   const navigateLogin = useNavigate(); // Hook para navegação
 
   const handleLogin = async (e) => {
-      e.preventDefault();
+    e.preventDefault();
 
-      try {
-          const response = await api.post('/users/login', { email, senha });
-          setMessage(response.data.message);
+    try {
+      const response = await api.post('/users/login', { email, senha });
+      setMessage(response.data.message);
 
-          // Verifica se o login foi bem-sucedido e redireciona
-          if (response.status === 200) {
-              navigateLogin('/home'); // Redireciona para a rota 'home'
-          }
-      } catch (error) {
-          setMessage(error.response?.data?.message || 'Erro ao fazer login.');
+      // Verifica se o login foi bem-sucedido e redireciona
+      if (response.status === 200) {
+        navigateLogin('/home'); // Redireciona para a rota 'home'
       }
+    } catch (error) {
+      setMessage(error.response?.data?.message || 'Erro ao fazer login.');
+    }
   };
 
 
@@ -53,19 +52,18 @@ const UserForm = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const response = await axios.post('http://localhost:5000/api/users/create', formData);
+      const response = await api.post('/users/create', formData); // Alteração para usar api.js
       alert(response.data.message);
 
-      // Redireciona para a página home se o cadastro for bem-sucedido
-      if (response.status === 201) { // Supondo que um status 201 seja retornado para sucesso
-        navigate('/home');
+      if (response.status === 201) {
+        navigate('/home'); // Redireciona para a página inicial após cadastro
       }
     } catch (error) {
-      console.error('Erro ao enviar dados:', error);
+      console.error('Erro ao cadastrar usuário:', error.response?.data || error);
       alert('Erro ao criar usuário.');
     }
   };

@@ -5,7 +5,7 @@ import { FaUser, FaHome, FaList } from 'react-icons/fa';
 
 const Header = ( {Text,Text2, Text3, onClick, onClick1, onClick2, onClick3}) => {
     return(
-        <section id='header'>
+        <section id='headerH'>
         <header>
             <nav id="nav-bar_h">
                 <i id="nav-logo"><img src={logo} alt="logo" /></i>
@@ -27,7 +27,7 @@ const Header = ( {Text,Text2, Text3, onClick, onClick1, onClick2, onClick3}) => 
             </div>
         </header>
 
-        <ul className="example-1">
+        <ul className="mobile">
         <li className="icon-content">
             <a
             href="/"

@@ -3,7 +3,8 @@
     flex-direction: row;
     color: #D9D9D9;
     gap: 200px;
-    margin-left: 16%;
+    margin-left: 12%;
+    margin-right: 12%;
     margin-top: 90px;
     justify-content: space-between;
     align-items: center; /* Centraliza os itens (imagens e textos) verticalmente */
@@ -145,6 +146,9 @@
         height: 200px;
         margin-left: -50px;
     }
+}
+@media screen and (max-width: 620px) {
+    
 }
 
 /* Quando a largura da tela for menor que 480px */

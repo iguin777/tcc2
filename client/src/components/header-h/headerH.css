@@ -97,16 +97,16 @@ header {
 }
 
 @media screen and (max-width: 1170px) {
-    #nav_list {
+    #nav_list_h {
         display: none;
     }
-    header {
+    #headerH {
         display: none;
     }
     ul {
         list-style: none;
     }
-    .example-1 {
+    .mobile {
         gap: 7%;
         margin-top: 165%;
         margin-left: 15%;
@@ -122,13 +122,13 @@ header {
         height: 70px;
         width: 300px;
     }
-    .example-1 .icon-content {
+    .mobile .icon-content {
         top: -10px;
         margin: 0 10px;
         position: relative;
         font-weight: bolder;
     }
-    .example-1 .icon-content .tooltip {
+    .mobile .icon-content .tooltip {
         position: absolute;
         top: -30px;
         left: 50%;
@@ -143,13 +143,13 @@ header {
         font-weight: bolder;
     }
 
-    .example-1 .icon-content:hover .tooltip {
+    .mobile .icon-content:hover .tooltip {
         opacity: 1;
         visibility: visible;
         top: -50px;
     }
 
-    .example-1 .icon-content .link {
+    .mobile .icon-content .link {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -160,10 +160,10 @@ header {
         transition: all 0.3s ease-in-out;
         font-weight: bolder;
     }
-    .example-1 .icon-content .link:hover {
+    .mobile .icon-content .link:hover {
         box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
     }
-    .example-1 .icon-content .link svg {
+    .mobile.icon-content .link svg {
         width: 30px;
         height: 30px;
         fill: #fff;

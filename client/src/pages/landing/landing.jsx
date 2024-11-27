@@ -55,7 +55,7 @@ function Landing() {
     });
     ScrollReveal().reveal(".pc", {
       ...scrollRevealOption,
-      delay: 800,
+      origin: "right",
     });
 
     ScrollReveal().reveal(".txt-info", {

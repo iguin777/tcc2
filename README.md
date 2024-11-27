@@ -26,11 +26,15 @@ Para instalar todas a dependencias e o iniciar o projeto, siga estas etapas:
 
 Windows:
 
+Front-end:
 ```
 cd client   
 npm install    
 npm start 
+```
 
+Back-end:
+```
 cd backend
 npm install
 node server.js

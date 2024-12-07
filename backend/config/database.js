@@ -26,17 +26,17 @@ async function setupDatabase() {
 
 async function main() {
     await setupDatabase();
-    const db = mysql.createConnection({
+}
+
+async function getDatabase() {
+    const db = await mysqlp.createPool({
         host: 'localhost',
         user: 'root',
         password: '',
         database: 'gamejam',
     });
-    db.connect(err => {
-        if (err) console.error(err);
-        else console.log('Conectado ao banco.');
-    });
-    module.exports = db;
+    return db
 }
 
 main().catch(console.error);
+module.exports = getDatabase;

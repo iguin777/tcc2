@@ -7,37 +7,37 @@ import Card1 from '../../assets/home/card-1.svg'
 import Card2 from '../../assets/home/card-2.svg'
 import Card3 from '../../assets/home/card-3.svg'
 import { useEffect, useState } from 'react';
-
+import axios from 'axios';
 
 function Home() {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Função para carregar os dados do usuário do localStorage
-  const loadUser = () => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    } else {
-      setUser(null);
+  const loadUser = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/users/usuario/1');
+      console.log(response)
+      setUser(response.data);
+    } catch (err) {
+      setError('Erro ao carregar os dados do usuário.');
+      console.error('Error loading user data:', err);
+    } finally {
+      setLoading(false);
     }
   };
 
-  // Carregar os dados do usuário ao montar o componente
   useEffect(() => {
     loadUser();
   }, []);
 
-  // Atualizar o estado quando o localStorage mudar
-  useEffect(() => {
-    const handleStorageChange = () => {
-      loadUser();
-    };
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
 
-    window.addEventListener('storage', handleStorageChange);
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-    };
-  }, []);
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   if (!user) {
     return (
@@ -50,7 +50,6 @@ function Home() {
 
   return (
     <div className="home">
-
       <HeaderH
         Text="Inicio"
         Text2="Chat"
@@ -86,10 +85,17 @@ function Home() {
         <div className="card-perfil">
           <div className="perfil">
             <h2 className='nomeuser'>Olá, <br /> {user.nome}</h2>
-      
           </div>
           <br />
-          <hr style={{ border: 'none', borderTop: '2px solid #545454', width: '359px', marginLeft: '30px', margintop: '50px' }} />
+          <hr
+            style={{
+              border: 'none',
+              borderTop: '2px solid #545454',
+              width: '359px',
+              marginLeft: '30px',
+              margintop: '50px',
+            }}
+          />
           <br />
 
           <div className="equipe">
@@ -99,19 +105,18 @@ function Home() {
               <div className="equipe-child"></div>
             </div>
           </div>
-          <div className='clima'>
+          <div className="clima">
             <Clima />
           </div>
 
           <div className="areaC">
-            <div className="group-child">
-            </div>
+            <div className="group-child"></div>
             <div className="rea-do-competidor">Área do competidor</div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

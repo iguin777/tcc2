@@ -7,18 +7,19 @@ import Card1 from '../../assets/home/card-1.svg'
 import Card2 from '../../assets/home/card-2.svg'
 import Card3 from '../../assets/home/card-3.svg'
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+//import axios from 'axios';
 
 function Home() {
+  const location = useLocation();
+  const { userData } = location.state || {};
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const loadUser = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/users/usuario/1');
-      console.log(response)
-      setUser(response.data);
+      setUser(userData);
     } catch (err) {
       setError('Erro ao carregar os dados do usuário.');
       console.error('Error loading user data:', err);

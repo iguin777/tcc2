@@ -83,7 +83,7 @@ INSERT INTO equipe (nome, nome_engine, fk_concurso_id, fk_tipo_id) VALUES
 ('Equipe D', 'Unity', 3, 1);
 
 INSERT INTO usuario (nome, fk_equipe_id, email, telefone, usuario_rm, senha, etec) VALUES
-('Alice Silva', 1, 'alice.silva@example.com', '11999999999', 'RM001', 'senha123', 'ETEC São Paulo'),
+('Alice Silva', 1, 'alice.silva@example.com', '11999999999', 'RM001', '123', 'ETEC São Paulo'),
 ('Bob Santos', 1, 'bob.santos@example.com', '11988888888', 'RM002', 'senha123', 'ETEC São Paulo'),
 ('Carol Oliveira', 2, 'carol.oliveira@example.com', '11977777777', 'RM003', 'senha123', 'ETEC Campinas'),
 ('David Costa', 3, 'david.costa@example.com', '11966666666', 'RM004', 'senha123', 'ETEC São José dos Campos');

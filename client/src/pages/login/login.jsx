@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
 
 const UserForm = () => {
-
   //login
 
   const [email, setEmail] = useState('');
@@ -18,10 +17,9 @@ const UserForm = () => {
       const response = await api.post('/users/login', { email, senha });
       setMessage(response.data.message);
   
-
       // Verifica se o login foi bem-sucedido e redireciona
       if (response.status === 200) {
-        navigateLogin('/home'); // Redireciona para a rota 'home'
+        navigateLogin('/home', { state: { userData: response.data.user } }); // Redireciona para a rota 'home'
       }
     } catch (error) {
       setMessage(error.response?.data?.message || 'Erro ao fazer login.');
@@ -40,7 +38,7 @@ const UserForm = () => {
   });
 
   const [bodyClass, setBodyClass] = useState(''); // Adicionado aqui
-  const navigate = useNavigate(); // Hook para redirecionamento
+  //const navigate = useNavigate(); // Hook para redirecionamento
 
   const handleSignIn = () => {
     setBodyClass('sign-in-js');
@@ -59,14 +57,22 @@ const UserForm = () => {
     try {
       const response = await api.post('/users/create', formData); // Alteração para usar api.js
       alert(response.data.message);
-
       if (response.status === 201) {
-        navigate('/home'); // Redireciona para a página inicial após cadastro
+        try {
+          const response2 = await api.get(`/users/usuario/${response.data.userId}`);
+          setMessage(response2.data.message);
+          if (response2.status === 200) {
+            navigateLogin('/home', { state: { userData: response2.data } });
+          }
+        } catch (error) {
+          alert(error.response2?.data?.message || 'Erro ao adquirir cadastro.');
+        }
       }
     } catch (error) {
       console.error('Erro ao cadastrar usuário:', error.response?.data || error);
       alert('Erro ao criar usuário.');
     }
+
   };
 
   return (

@@ -95,6 +95,7 @@ const UserForm = () => {
           </div>
 
           <div className="second-column">
+           <br />
             <h2 className="title-l title-second-1">Crie sua conta</h2>
             <div className="social-media">
               <ul className="list-social-media">
@@ -152,6 +153,7 @@ const UserForm = () => {
                 <input type="password" id="senha" name="senha" onChange={handleChange} required placeholder="Senha" />
               </label>
               <button type="submit" className="btn btn-second">Cadastrar</button>
+              <br />
             </form>
           </div>
         </div>

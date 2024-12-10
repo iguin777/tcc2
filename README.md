@@ -46,7 +46,7 @@ Para contribuir com o TCC, siga estas etapas:
 ```
 git init  
 git add .  
-git commit -m "Fazer a tela home pegar o nome e equipe do usuario (obs: deu errado)"  
+git commit -m "build"  
 git branch -M main  
 git remote add origin https://github.com/iguin777/teste.git  
 git push -u origin main  

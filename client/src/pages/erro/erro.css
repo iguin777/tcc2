@@ -1,0 +1,98 @@
+/* Global Reset for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #fff;
+  }
+  
+  /* Namespace for the error page */
+  .error-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #121212;
+  }
+  
+  .error-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #303030;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .error-message {
+    padding: 30px;
+  }
+  
+  .error-code {
+    font-size: 96px;
+    font-weight: bold;
+    color: #8900c9; /* Color inspired by the original theme */
+    margin-bottom: 20px;
+  }
+  
+  .error-text {
+    font-size: 24px;
+    font-weight: 500;
+    color: #aaa;
+    margin-bottom: 20px;
+  }
+  
+  .error-description {
+    font-size: 18px;
+    color: #ddd;
+    margin-bottom: 30px;
+  }
+  
+  .back-home {
+    font-size: 20px;
+    font-weight: 600;
+    color: #8900c9;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #303030;
+    border: 2px solid #8900c9;
+    transition: all 0.3s ease;
+  }
+  
+  .back-home:hover {
+    background-color: #8900c9;
+    color: #fff;
+    border-color: #8900c9;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .error-container {
+      padding: 20px;
+    }
+  
+    .error-code {
+      font-size: 72px;
+    }
+  
+    .error-text {
+      font-size: 20px;
+    }
+  
+    .error-description {
+      font-size: 16px;
+    }
+  
+    .back-home {
+      font-size: 18px;
+    }
+  }
+  

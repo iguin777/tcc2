@@ -57,9 +57,9 @@ function Home() {
         Text3="Aulas"
         Text4="Canais"
         onClick="/"
-        onClick1="."
-        onClick2="."
-        onClick3="."
+        onClick1="erro"
+        onClick2="erro"
+        onClick3="home"
       />
       <div className="container-home">
         <div className="carrosel">
